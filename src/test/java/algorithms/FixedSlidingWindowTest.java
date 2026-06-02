@@ -19,4 +19,15 @@ public class FixedSlidingWindowTest {
         assertEquals(39, result, "The maximum sum for k = 4 should be 39");
     }
 
+    @Test
+    @DisplayName("Should run smoothly when the array contains negative numbers")
+    void shouldWorkWithNegativeNumbers() {
+        int[] nums = {-1, -2, -3, 4, -1, 5, -2};
+        int k = 2;
+
+        int result = FixedSlidingWindow.maxSubarraySum(nums, k);
+
+        assertEquals(4, result, "The maximum sum for k = 2 with negatives should be 4");
+    }
+
 }
