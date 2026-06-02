@@ -1,4 +1,4 @@
-package test.java.stack;
+package test.java.datastructures.stack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
