@@ -1,7 +1,7 @@
 package main.java.algorithms;
 
 public class PairSumSorted {
-    public int[] findPairSum(int[] nums, int target) {
+    public static int[] findPairSum(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             int sum = nums[left] + nums[right];
