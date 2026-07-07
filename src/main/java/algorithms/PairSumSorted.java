@@ -10,7 +10,7 @@ public class PairSumSorted {
             } else if (sum > target) {
                 right--;
             } else {
-                return new int[]{left, right};
+                return new int[]{nums[left], nums[right]};
             }
         }
         return new int[]{};
