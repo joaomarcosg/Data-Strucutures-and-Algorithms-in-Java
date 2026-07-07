@@ -1,5 +1,6 @@
 package test.java.algorithms;
 
+import main.java.algorithms.IsPalindrome;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
