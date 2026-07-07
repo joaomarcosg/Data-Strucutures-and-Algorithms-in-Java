@@ -1,6 +1,6 @@
 package main.java.datastructures.stack;
 
-public class Stack<T> {
+public class StaticStack<T> {
 
 
 }
