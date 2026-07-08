@@ -16,6 +16,14 @@ class StaticStackTest {
     }
 
     @Test
+    @DisplayName("Should start a empty stack and with a zero size")
+    void shouldStartEmpty() {
+        assertTrue((stack.isEmpty()));
+        assertFalse(stack.isFull());
+        assertEquals(0, stack.size());
+    }
+
+    @Test
     @DisplayName("Should stack the elements correctly and update the size")
     void shouldPushElements() {
         assertTrue(stack.push(5));
@@ -26,6 +34,27 @@ class StaticStackTest {
         assertTrue(stack.push(8));
         assertEquals(2, stack.size());
         assertEquals(8, stack.peek());
+    }
+
+    @Test
+    @DisplayName("Should unstack the elements in LIFO order")
+    void shouldPopElementsInLifoOrder() {
+        stack.push(5);
+        stack.push(8);
+        stack.push(11);
+        stack.push(15);
+
+        assertEquals(15, stack.pop());
+        assertEquals(3, stack.size());
+
+        assertEquals(11, stack.pop());
+        assertEquals(2, stack.size());
+
+        assertEquals(8, stack.pop());
+        assertEquals(1, stack.size());
+
+        assertEquals(5, stack.pop());
+        assertTrue(stack.isEmpty());
     }
 
 }
