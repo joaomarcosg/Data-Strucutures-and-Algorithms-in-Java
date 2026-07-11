@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class PairSumUnordered {
     public static int[] findPairSum(int[] nums, int target) {
+
         if (nums == null || nums.length < 2) return new int[]{};
 
         Map<Integer, Integer> visitedNumbers = new HashMap<>();
@@ -13,9 +14,11 @@ public class PairSumUnordered {
             int currentNum = nums[i];
             int complement = target - currentNum;
 
-            if (visitedNumbers.containsKey(complement)) return new int[]{complement, currentNum};
+            if (visitedNumbers.containsKey(complement)) {
+                return new int[]{visitedNumbers.get(complement), i};
+            }
 
-            visitedNumbers.put(complement, i);
+            visitedNumbers.put(currentNum, i);
         }
 
         return new int[]{};
