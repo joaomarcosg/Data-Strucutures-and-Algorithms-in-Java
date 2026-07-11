@@ -16,7 +16,19 @@ public class PairSumUnorderedTest {
 
         int[] result = PairSumUnordered.findPairSum(nums, target);
 
-        int[] expected = {2, 4};
+        int[] expected = {1, 4};
+        assertArrayEquals(expected, result, "The pair is not equal to the target");
+    }
+
+    @Test
+    @DisplayName("Should find the pair sum in another array")
+    void findPairSumInAnotherArray() {
+        int[] nums = {5, 12, 3, 8, 1};
+        int target = 11;
+
+        int[] result = PairSumUnordered.findPairSum(nums, target);
+
+        int[] expected = {2, 3};
         assertArrayEquals(expected, result, "The pair is not equal to the target");
     }
 }
