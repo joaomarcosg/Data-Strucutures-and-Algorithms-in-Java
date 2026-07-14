@@ -30,6 +30,16 @@ public class LinkedListStructure<T> {
         this.list.add(index, element);
     }
 
+    public int indexOf(T element) {
+        Objects.requireNonNull(element, "The element cannot be null");
+        return this.list.indexOf(element);
+    }
+
+    public boolean Remove(T element) {
+        Objects.requireNonNull(element, "The element cannot be null");
+        return this.list.remove(element);
+    }
+
     public T peek() {
         return this.list.peekFirst();
     }
