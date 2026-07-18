@@ -39,5 +39,35 @@ public class SetStructureTest {
         assertTrue(setStructure.has("John"));
     }
 
+    @Test
+    void should_return_the_union_of_two_sets() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("John");
+        setA.add("Jack");
 
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("Camila");
+        setB.add("Jack");
+
+        SetStructure<String> result = setA.union(setB);
+
+        assertEquals(3, result.size());
+        assertTrue(result.has("John"));
+        assertTrue(result.has("Jack"));
+        assertTrue(result.has("Camila"));
+    }
+    @Test
+    void should_not_modify_original_sets() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("John");
+
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("Jack");
+
+        setA.union(setB);
+
+        assertEquals(1, setA.size());
+        assertEquals(1, setB.size());
+
+    }
 }
