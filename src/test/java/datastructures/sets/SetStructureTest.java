@@ -155,7 +155,49 @@ public class SetStructureTest {
 
         assertEquals(1, resultBA.size());
         assertTrue(resultBA.has("Camila"));
-        
+
+    }
+
+    @Test
+    void should_return_true_when_set_is_a_subset_of_other_set() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("Jack");
+        setA.add("John");
+
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("John");
+        setB.add("Jack");
+        setB.add("Camila");
+
+        assertTrue(setA.isSubsetOf(setB));
+    }
+
+    @Test
+    void should_return_false_when_set_is_not_subset_of_other_set() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("Jack");
+        setA.add("John");
+
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("Jack");
+        setB.add("Tom");
+        setB.add("Camila");
+
+        assertFalse(setA.isSubsetOf(setB));
+    }
+
+    @Test
+    void should_return_false_when_first_subset_is_bigger_then_other_set() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("Jack");
+        setA.add("John");
+        setA.add("Camila");
+
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("Jack");
+        setB.add("Tom");
+
+        assertFalse(setA.isSubsetOf(setB));
     }
 
 }
