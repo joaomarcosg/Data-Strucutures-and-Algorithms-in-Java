@@ -70,4 +70,37 @@ public class SetStructureTest {
         assertEquals(1, setB.size());
 
     }
+
+    @Test
+    void should_return_intersection_of_two_sets() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("John");
+        setA.add("Jack");
+        setA.add("Camila");
+
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("John");
+        setB.add("Tom");
+        setB.add("Camila");
+
+        SetStructure<String> result = setA.intersection(setB);
+
+        assertEquals(2, result.size());
+        assertTrue(result.has("John"));
+        assertTrue(result.has("Camila"));
+    }
+
+    @Test
+    void should_return_empty_set_when_there_are_no_common_elements() {
+        SetStructure<String> setA = new SetStructure<>();
+        setA.add("John");
+
+        SetStructure<String> setB = new SetStructure<>();
+        setB.add("Jack");
+
+        SetStructure<String> result = setA.intersection(setB);
+
+        assertTrue(result.isEmpty());
+    }
+    
 }
