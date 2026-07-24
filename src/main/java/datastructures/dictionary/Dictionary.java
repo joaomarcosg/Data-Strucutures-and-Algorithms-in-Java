@@ -1,11 +1,8 @@
 package main.java.datastructures.dictionary;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-public class Dictionary<K, T> {
+public class Dictionary<K, T> implements Iterable<Map.Entry<K, T>> {
 
     private final Map<K, T> map = new HashMap<>();
 
@@ -35,6 +32,24 @@ public class Dictionary<K, T> {
 
     public Set<K> keys() {
         return Collections.unmodifiableSet(map.keySet());
+    }
+
+    public Collection<T> values() {
+        return List.copyOf(map.values());
+    }
+
+    public Set<Map.Entry<K, T>> entries() {
+        return Set.copyOf(map.entrySet());
+    }
+
+    @Override
+    public Iterator<Map.Entry<K, T>> iterator() {
+        return map.entrySet().iterator();
+    }
+
+    @Override
+    public String toString() {
+        return map.toString();
     }
 
 }
