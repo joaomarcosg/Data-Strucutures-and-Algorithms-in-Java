@@ -97,6 +97,28 @@ public class HashTableLinearProbing<K, V> {
         return put(key, value);
     }
 
+    public V get(K key) {
+        Objects.requireNonNull(key, "Key cannot be null.");
+
+        int capacity = table.length;
+        int index = indexFor(key, capacity);
+
+        for (int probe = 0; probe < capacity; probe++) {
+            int currentIndex = (index + probe) % capacity;
+            Entry<K, V> current = table[currentIndex];
+
+            if (current == null) {
+                return null;
+            }
+
+            if (current != TOMBSTONE && current.key.equals(key)) {
+                return current.value;
+            }
+        }
+
+        return null;
+    }
+
     @SuppressWarnings("unchecked")
     private void resize() {
         Entry<K, V>[] oldTable = table;
