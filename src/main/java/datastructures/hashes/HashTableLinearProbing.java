@@ -161,4 +161,12 @@ public class HashTableLinearProbing<K, V> {
         }
     }
 
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
 }
