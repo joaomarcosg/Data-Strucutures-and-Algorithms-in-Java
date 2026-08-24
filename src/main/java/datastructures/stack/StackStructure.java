@@ -5,9 +5,7 @@ import java.util.Stack;
 
 public class StackStructure<T> {
     private final Stack<T> stack = new Stack<>();
-
-    public StackStructure() {}
-
+    
     public boolean push(T element) {
         Objects.requireNonNull(element);
         this.stack.push(element);
