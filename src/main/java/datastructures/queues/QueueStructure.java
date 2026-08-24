@@ -6,9 +6,7 @@ import java.util.Queue;
 
 public class QueueStructure<T> {
     private final Queue<T> queue = new LinkedList<>();
-
-    public QueueStructure() {}
-
+    
     public boolean enqueue(T element) {
         Objects.requireNonNull(element, "The element cannot be null.");
         return this.queue.offer(element);
