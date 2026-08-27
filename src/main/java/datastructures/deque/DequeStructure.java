@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class DequeStructure<T> {
     private Deque<T> deque = new ArrayDeque<>();
-    
+
     public boolean addFront(T element) {
         Objects.requireNonNull(element, "The element cannot be null");
         this.deque.addFirst(element);
