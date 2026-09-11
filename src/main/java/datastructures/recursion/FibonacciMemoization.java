@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class FibonacciMemoization {
 
     public static long getNthFibonacci(final int n) {
-        if (n < 1) throw new IllegalArgumentException("Index cannot be negative");
+        if (n < 0) throw new IllegalArgumentException("Index cannot be negative");
 
         long[] memo = new long[n + 1];
 
